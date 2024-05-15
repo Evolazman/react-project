@@ -1,38 +1,720 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Impact, Haettenschweiler,
+   'Arial Narrow Bold', sans-serif;
+   user-select: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+  background: #333;
+}
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.container .spinbtn {
+  position: absolute;
+ ;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 4px solid rgba(0,0,0,0.75);
+  color: #333;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+.container .spinbtn::before 
+{
+  position: absolute;
+  content: '';
+  top: -29px;
+  width:30px;
+  height:29px;
+  background: black;
+  clip-path: polygon(48% 0, 21% 100%, 76% 100%);
+
+}
+.container .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.container .number 
+{
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: var(--clr);
+  transform-origin: bottom right;
+  transform: rotate(calc(45deg * var(--i)));
+  clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+}
+
+.container .number span {
+  position: relative;
+  transform: rotate(45deg);
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+}
+img { 
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+}
+
+
+.stop {
+  animation-play-state: paused;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+}
+
+.spin360 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :360deg ;
+}
+
+.spin370 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :370deg ;
+}
+.spin380 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :380deg ;
+}
+.spin390 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :390deg ;
+}
+.spin400 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :400deg ;
+}
+.spin410 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :410deg ;
+}
+.spin420 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :420deg ;
+}
+.spin430 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :430deg ;
+}
+.spin440 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :440deg ;
+}
+.spin450 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :450deg ;
+}
+.spin460 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :460deg ;
+}
+.spin470 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :470deg ;
+}
+.spin480 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :480deg ;
+}
+.spin490 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :490deg ;
+}
+.spin500 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :500deg ;
+}
+.spin510 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :510deg ;
+}
+.spin520 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :520deg ;
+}
+.spin530 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :530deg ;
+}
+.spin540 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :540deg ;
+}
+.spin550 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :550deg ;
+}
+.spin560 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :560deg ;
+}
+.spin570 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :570deg ;
+}
+.spin580 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :580deg ;
+}
+.spin590 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :590deg ;
+}
+.spin600 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :600deg ;
+}
+.spin610 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :610deg ;
+}
+.spin620 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :620deg ;
+}
+.spin630 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :630deg ;
+}
+.spin640 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :640deg ;
+}
+.spin650 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :650deg ;
+}
+.spin660 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :660deg ;
+}
+.spin670 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :670deg ;
+}
+.spin680 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :680deg ;
+}
+.spin690 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :690deg ;
+}
+.spin700 {
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #665d5d;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(246, 192, 67, 0.75);
+  box-shadow: 0 0 0 5px #333 ,
+  0 0 0 15px #fff ,
+  0 0 0 18px #111 ;
+  transition: 1s;
+  rotate :700deg ;
 }
